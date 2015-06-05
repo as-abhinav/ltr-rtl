@@ -42,11 +42,12 @@ require.config({
 
 require(['testem', 'jasmine-jquery', 'spec-helper', 'custom-matchers'], function() {
 
-  jasmine.getFixtures().fixturesPath = 'fixtures/ltr';
+  jasmine.getFixtures().fixturesPath = 'fixtures/rtl';
   require({ paths: { spec: "/jasmine/spec" } }, [
-      "spec/css-specs/mainSpec",
-  ], function () {
+      
+      "spec/css-specs/mainSpec"
 
+  ], function () {
     window.onload();
   });
 });

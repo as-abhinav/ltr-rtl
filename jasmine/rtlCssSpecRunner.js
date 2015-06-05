@@ -1,18 +1,8 @@
 require.config({
-  baseUrl: "../assets/javascripts",
+  baseUrl: "/",
   urlArgs: 'cb=' + Math.random(),
   paths: {
-    bootstrap: 'libs/bootstrap',
-    modernizr: 'libs/modernizr-phantom-notouch',
-    enquire: 'libs/enquire',
-    iQ: 'libs/iq',
-    jquery: 'libs/jquery',
-    cookieStorage: 'plugins/jquery.cookie',
-    url: 'app_lib/url.parser',
-    parseuri: '/assets/javascripts/app_lib/parse.uri',
-    soundManager: 'libs/soundmanager',
-    history: 'libs/history.adapter.jquery',
-    login: 'modules/header/login.module',
+    jquery: 'public/js/libs/jquery',
     'jasmine': '/jasmine/lib/jasmine-2.0.0/jasmine',
     'jasmine-html': '/jasmine/lib/jasmine-2.0.0/jasmine-html',
     'boot': '/jasmine/lib/jasmine-2.0.0/boot',
@@ -23,10 +13,6 @@ require.config({
 
   },
   shim: {
-    enquire: {
-      deps: ['jquery'],
-      exports: 'enquire'
-    },
     modernizr: {
       exports: 'Modernizr'
     },
@@ -50,55 +36,18 @@ require.config({
     'testem': {
       deps:['boot']
     }
-  },
+  }
 
-  deps: [
-    "analytics",
-    "main.app",
-    "utils/utils"
-  ]
 });
 
 require(['testem', 'jasmine-jquery', 'spec-helper', 'custom-matchers'], function() {
 
-  jasmine.getFixtures().fixturesPath = 'spec/rtl-css-spec/fixtures/rtl';
+  jasmine.getFixtures().fixturesPath = 'fixtures/rtl';
   require({ paths: { spec: "/jasmine/spec" } }, [
-      "spec/rtl-css-spec/HeaderSpec",
-      "spec/rtl-css-spec/EditorialImageSpec",
-      "spec/rtl-css-spec/EditorialHotspotsSpec",
-      "spec/rtl-css-spec/EditorialDualViewerSpec",
-      "spec/rtl-css-spec/Editorial360ViewerSpec",
-      "spec/rtl-css-spec/EditorialFeatureSwitchSpec",
-      "spec/rtl-css-spec/EditorialVideoSpec",
-      "spec/rtl-css-spec/EditorialSlideshowSpec",
-      "spec/rtl-css-spec/EditorialCarouselSpec",
-      "spec/rtl-css-spec/EditorialChaptersSpec",
-      "spec/rtl-css-spec/PrimaryToutSpec",
-      "spec/rtl-css-spec/PrimaryToutProductIntroPlateSpec",
+      
+      "spec/css-specs/mainSpec"
 
-      "spec/rtl-css-spec/PDPSlideShowSpec",
-      "spec/rtl-css-spec/ProductDetailsSpec",
-      "spec/rtl-css-spec/ProductDetailsLegacySpec",
-      "spec/rtl-css-spec/ProductSummarySpec",
-      "spec/rtl-css-spec/ProductSingleSpecificationSpec",
-      "spec/rtl-css-spec/ProductMultiSpecificationSpec",
-      "spec/rtl-css-spec/TertiaryToutSpec",
-      "spec/rtl-css-spec/FootNotesSpec",
-      "spec/rtl-css-spec/FeatureBenefitsSpec",
-      "spec/rtl-css-spec/ProductHighlightsSpec",
-      "spec/rtl-css-spec/RelatedProductSpec",
-      "spec/rtl-css-spec/GalleryTabsSpec",
-      "spec/rtl-css-spec/ProductComparisonSpec",
-      "spec/rtl-css-spec/TypeAheadSearchSpec",
-      "spec/rtl-css-spec/SearchResultsPageSpec",
-      "spec/rtl-css-spec/FootersSpec",
-      "spec/rtl-css-spec/AccessoryFinderSpec",
-      "spec/rtl-css-spec/ReviewsAndAwardsSpec",
-      "spec/rtl-css-spec/ReviewsAndRatingsSpec",
-
-      "spec/rtl-css-spec/OneSonyCarouselSpec"
   ], function () {
-
     window.onload();
   });
 });
